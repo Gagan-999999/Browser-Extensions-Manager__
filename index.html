@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content="Manage, view, and organize your browser extensions easily."
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Browser extensions manager UI</title>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header d-flex f_al-c f_js-sb">
+      <a
+        href="#"
+        rel="noreferrer"
+        title="Go to Extension Home page"
+        class="extension-logo-link d-flex f_al-c"
+      >
+        <img src="assets/images/logo.svg" alt="Extension logo" />
+        <span class="extension-logo-txt">Extensions</span>
+      </a>
+
+      <!-- Theme changing button -->
+      <button
+        type="button"
+        class="theme-btn"
+        aria-label="Toggle to dark or light theme"
+      >
+        <img
+          src="assets/images/icon-sun.svg"
+          alt=""
+          aria-hidden="true"
+          class="theme-logo"
+        />
+      </button>
+    </header>
+
+    <main class="main" id="main-content">
+      <section
+        class="extension-container"
+        aria-labelledby="extensions-list-heading"
+      >
+        <header class="extension-list-header d-flex f_js-sb f_al-c">
+          <h1 id="extensions-list-heading" class="extension-container_heading">
+            Extensions List
+          </h1>
+
+          <!-- Navigation for filter buttons -->
+          <nav class="filter-nav" aria-label="Extension filter options">
+            <ul class="d-flex f_al-c">
+              <li class="nav_list_item">
+                <button
+                  type="button"
+                  class="filter-btn active"
+                  data-filter="all"
+                  aria-pressed="true"
+                >
+                  All
+                </button>
+              </li>
+              <li class="nav_list_item">
+                <button
+                  type="button"
+                  class="filter-btn"
+                  data-filter="active"
+                  aria-pressed="false"
+                >
+                  Active
+                </button>
+              </li>
+              <li class="nav_list_item">
+                <button
+                  type="button"
+                  class="filter-btn"
+                  data-filter="inactive"
+                  aria-pressed="false"
+                >
+                  Inactive
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </header>
+
+        <!-- Extensions list -->
+        <ul class="extension-list">
+          <h2 class="sr-only">List of installed extensions</h2>
+          <li class="card-container">
+            <article class="extension_card">
+              <header class="card-header">
+                <img src="" alt="" aria-hidden="true" class="card-header_img" />
+                <div class="card-info">
+                  <h2 class="card-name"></h2>
+                  <p class="card-descr"></p>
+                </div>
+              </header>
+
+              <div class="card-action">
+                <!-- Remove button -->
+                <button
+                  type="button"
+                  class="remove-btn"
+                  aria-label="Remove DevLens extension"
+                >
+                  Remove
+                </button>
+
+                <label class="toggle-btn">
+                  <span id="toggle-label" class="sr-only toggle__label"
+                    >Enable or disable extension</span
+                  >
+                  <input
+                    type="checkbox"
+                    class="toggle-input"
+                    role="switch"
+                    aria-labelledby="toggle-label"
+                  />
+                  <span class="toggle-slider" aria-hidden="true"></span>
+                </label>
+              </div>
+            </article>
+          </li>
+          <li class="card-container">
+            <article class="extension_card">
+              <header class="card-header">
+                <img src="" alt="" aria-hidden="true" class="card-header_img" />
+                <div class="card-info">
+                  <h2 class="card-name"></h2>
+                  <p class="card-descr"></p>
+                </div>
+              </header>
+
+              <div class="card-action">
+                <button
+                  type="button"
+                  class="remove-btn"
+                  aria-label="Remove DevLens "
+                >
+                  Remove
+                </button>
+
+                <label class="toggle-btn">
+                  <span id="toggle-label" class="sr-only toggle__label"
+                    >Enable or disable extension</span
+                  >
+                  <input
+                    type="checkbox"
+                    class="toggle-input"
+                    role="switch"
+                    aria-labelledby="toggle-label"
+                  />
+                  <span class="toggle-slider" aria-hidden="true"></span>
+                </label>
+              </div>
+            </article>
+          </li>
+          <li class="card-container">
+            <article class="extension_card">
+              <header class="card-header">
+                <img src="" alt="" aria-hidden="true" class="card-header_img" />
+                <div class="card-info">
+                  <h2 class="card-name"></h2>
+                  <p class="card-descr"></p>
+                </div>
+              </header>
+
+              <div class="card-action">
+                <button
+                  type="button"
+                  class="remove-btn"
+                  aria-label="Remove DevLens "
+                >
+                  Remove
+                </button>
+
+                <label class="toggle-btn">
+                  <span id="toggle-label" class="sr-only toggle__label"
+                    >Enable or disable extension</span
+                  >
+                  <input
+                    type="checkbox"
+                    class="toggle-input"
+                    role="switch"
+                    aria-labelledby="toggle-label"
+                  />
+                  <span class="toggle-slider" aria-hidden="true"></span>
+                </label>
+              </div>
+            </article>
+          </li>
+          <li class="card-container">
+            <article class="extension_card">
+              <header class="card-header">
+                <img src="" alt="" aria-hidden="true" class="card-header_img" />
+                <div class="card-info">
+                  <h2 class="card-name"></h2>
+                  <p class="card-descr"></p>
+                </div>
+              </header>
+
+              <div class="card-action">
+                <button
+                  type="button"
+                  class="remove-btn"
+                  aria-label="Remove DevLens "
+                >
+                  Remove
+                </button>
+
+                <label class="toggle-btn">
+                  <span id="toggle-label" class="sr-only toggle__label"
+                    >Enable or disable extension</span
+                  >
+                  <input
+                    type="checkbox"
+                    class="toggle-input"
+                    role="switch"
+                    aria-labelledby="toggle-label"
+                  />
+                  <span class="toggle-slider" aria-hidden="true"></span>
+                </label>
+              </div>
+            </article>
+          </li>
+          <li class="card-container">
+            <article class="extension_card">
+              <header class="card-header">
+                <img src="" alt="" aria-hidden="true" class="card-header_img" />
+                <div class="card-info">
+                  <h2 class="card-name"></h2>
+                  <p class="card-descr"></p>
+                </div>
+              </header>
+
+              <div class="card-action">
+                <button
+                  type="button"
+                  class="remove-btn"
+                  aria-label="Remove DevLens "
+                >
+                  Remove
+                </button>
+
+                <label class="toggle-btn">
+                  <span id="toggle-label" class="sr-only toggle__label"
+                    >Enable or disable extension</span
+                  >
+                  <input
+                    type="checkbox"
+                    class="toggle-input"
+                    role="switch"
+                    aria-labelledby="toggle-label"
+                  />
+                  <span class="toggle-slider" aria-hidden="true"></span>
+                </label>
+              </div>
+            </article>
+          </li>
+          <li class="card-container">
+            <article class="extension_card">
+              <header class="card-header">
+                <img src="" alt="" aria-hidden="true" class="card-header_img" />
+                <div class="card-info">
+                  <h2 class="card-name"></h2>
+                  <p class="card-descr"></p>
+                </div>
+              </header>
+
+              <div class="card-action">
+                <button
+                  type="button"
+                  class="remove-btn"
+                  aria-label="Remove DevLens "
+                >
+                  Remove
+                </button>
+
+                <label class="toggle-btn">
+                  <span id="toggle-label" class="sr-only toggle__label"
+                    >Enable or disable extension</span
+                  >
+                  <input
+                    type="checkbox"
+                    class="toggle-input"
+                    role="switch"
+                    aria-labelledby="toggle-label"
+                  />
+                  <span class="toggle-slider" aria-hidden="true"></span>
+                </label>
+              </div>
+            </article>
+          </li>
+          <li class="card-container">
+            <article class="extension_card">
+              <header class="card-header">
+                <img src="" alt="" aria-hidden="true" class="card-header_img" />
+                <div class="card-info">
+                  <h2 class="card-name"></h2>
+                  <p class="card-descr"></p>
+                </div>
+              </header>
+
+              <div class="card-action">
+                <button
+                  type="button"
+                  class="remove-btn"
+                  aria-label="Remove DevLens "
+                >
+                  Remove
+                </button>
+
+                <label class="toggle-btn">
+                  <span id="toggle-label" class="sr-only toggle__label"
+                    >Enable or disable extension</span
+                  >
+                  <input
+                    type="checkbox"
+                    class="toggle-input"
+                    role="switch"
+                    aria-labelledby="toggle-label"
+                  />
+                  <span class="toggle-slider" aria-hidden="true"></span>
+                </label>
+              </div>
+            </article>
+          </li>
+          <li class="card-container">
+            <article class="extension_card">
+              <header class="card-header">
+                <img src="" alt="" aria-hidden="true" class="card-header_img" />
+                <div class="card-info">
+                  <h2 class="card-name"></h2>
+                  <p class="card-descr"></p>
+                </div>
+              </header>
+
+              <div class="card-action">
+                <button
+                  type="button"
+                  class="remove-btn"
+                  aria-label="Remove DevLens "
+                >
+                  Remove
+                </button>
+
+                <label class="toggle-btn">
+                  <span id="toggle-label" class="sr-only toggle__label"
+                    >Enable or disable extension</span
+                  >
+                  <input
+                    type="checkbox"
+                    class="toggle-input"
+                    role="switch"
+                    aria-labelledby="toggle-label"
+                  />
+                  <span class="toggle-slider" aria-hidden="true"></span>
+                </label>
+              </div>
+            </article>
+          </li>
+          <li class="card-container">
+            <article class="extension_card">
+              <header class="card-header">
+                <img src="" alt="" aria-hidden="true" class="card-header_img" />
+                <div class="card-info">
+                  <h2 class="card-name"></h2>
+                  <p class="card-descr"></p>
+                </div>
+              </header>
+
+              <div class="card-action">
+                <button
+                  type="button"
+                  class="remove-btn"
+                  aria-label="Remove DevLens "
+                >
+                  Remove
+                </button>
+
+                <label class="toggle-btn">
+                  <span id="toggle-label" class="sr-only toggle__label"
+                    >Enable or disable extension</span
+                  >
+                  <input
+                    type="checkbox"
+                    class="toggle-input"
+                    role="switch"
+                    aria-labelledby="toggle-label"
+                  />
+                  <span class="toggle-slider" aria-hidden="true"></span>
+                </label>
+              </div>
+            </article>
+          </li>
+          <li class="card-container">
+            <article class="extension_card">
+              <header class="card-header">
+                <img src="" alt="" aria-hidden="true" class="card-header_img" />
+                <div class="card-info">
+                  <h2 class="card-name"></h2>
+                  <p class="card-descr"></p>
+                </div>
+              </header>
+
+              <div class="card-action">
+                <button
+                  type="button"
+                  class="remove-btn"
+                  aria-label="Remove DevLens "
+                >
+                  Remove
+                </button>
+
+                <label class="toggle-btn">
+                  <span id="toggle-label" class="sr-only toggle__label"
+                    >Enable or disable extension</span
+                  >
+                  <input
+                    type="checkbox"
+                    class="toggle-input"
+                    role="switch"
+                    aria-labelledby="toggle-label"
+                  />
+                  <span class="toggle-slider" aria-hidden="true"></span>
+                </label>
+              </div>
+            </article>
+          </li>
+          <li class="card-container">
+            <article class="extension_card">
+              <header class="card-header">
+                <img src="" alt="" aria-hidden="true" class="card-header_img" />
+                <div class="card-info">
+                  <h2 class="card-name"></h2>
+                  <p class="card-descr"></p>
+                </div>
+              </header>
+
+              <div class="card-action">
+                <button
+                  type="button"
+                  class="remove-btn"
+                  aria-label="Remove DevLens "
+                >
+                  Remove
+                </button>
+
+                <label class="toggle-btn">
+                  <span id="toggle-label" class="sr-only toggle__label"
+                    >Enable or disable extension</span
+                  >
+                  <input
+                    type="checkbox"
+                    class="toggle-input"
+                    role="switch"
+                    aria-labelledby="toggle-label"
+                  />
+                  <span class="toggle-slider" aria-hidden="true"></span>
+                </label>
+              </div>
+            </article>
+          </li>
+          <li class="card-container">
+            <article class="extension_card">
+              <header class="card-header">
+                <img src="" alt="" aria-hidden="true" class="card-header_img" />
+                <div class="card-info">
+                  <h2 class="card-name"></h2>
+                  <p class="card-descr"></p>
+                </div>
+              </header>
+
+              <div class="card-action">
+                <button
+                  type="button"
+                  class="remove-btn"
+                  aria-label="Remove DevLens "
+                >
+                  Remove
+                </button>
+
+                <label class="toggle-btn">
+                  <span id="toggle-label" class="sr-only toggle__label"
+                    >Enable or disable extension</span
+                  >
+                  <input
+                    type="checkbox"
+                    class="toggle-input"
+                    role="switch"
+                    aria-labelledby="toggle-label"
+                  />
+                  <span class="toggle-slider" aria-hidden="true"></span>
+                </label>
+              </div>
+            </article>
+          </li>
+        </ul>
+        <h2 class="overlay hidden">All themes have been removed.</h2>
+      </section>
+    </main>
+    <script defer src="logic.js"></script>
+  </body>
+</html>

@@ -1,0 +1,422 @@
+:root {
+  /* ### button colors*/
+  --light-Red: hsl(3, 86%, 64%);
+  --medium-Red: hsl(3, 71%, 56%);
+  --Red: hsl(3, 77%, 44%);
+
+  /* font-family and weights */
+  --font-Noto_Sans: "Noto Sans", sans-serif;
+  --fw-400: 400;
+  --fw-500: 500;
+  --fw-700: 700;
+
+  /* space tokens */
+  --space-05: 0.5rem;
+  --space-1: 1rem;
+  --space-015: 1.5rem;
+  --space-2: 2rem;
+  --space-025: 2.5rem;
+  --space-3: 3rem;
+  --space-4: 4rem;
+
+  --toggle_slider: hsl(0, 0%, 100%);
+
+  /* prefer dark color scheme */
+  @media (prefers-color-scheme: dark) {
+    color-scheme: dark;
+    --theme: "dark";
+  }
+
+  /* Prefers light scheme */
+  @media (prefers-color-scheme: light) {
+    color-scheme: light;
+    --theme: "light";
+  }
+}
+/* view transtion  */
+::view-transition-image-pair(root) {
+  isolation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+  display: block;
+}
+::view-transition-group(extensionList) {
+  animation-duration: 700ms;
+}
+
+/* ------------------------------- RESET ---------------------------  */
+html {
+  box-sizing: border-box;
+  text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  font-size: 62.5%;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  line-height: 1.5;
+}
+
+/* Remove default margins */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+* {
+  margin: 0;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+  overflow-wrap: break-word;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img {
+  display: block;
+  max-width: 100%;
+  font-style: italic;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* Smooth scroll */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+button {
+  cursor: pointer;
+}
+
+/* ------------------ Layout and components ----------------- */
+
+body {
+  font-family: var(--font-Noto_Sans);
+  font-weight: var(--fw-400);
+  color: var(--Secondary_200);
+  background: var(--body-background-color);
+  font-size: 1.6rem;
+  min-height: 110vh;
+  padding-block: clamp(2rem, 5.33vw, 5rem);
+  padding-inline: clamp(1rem, 2.66vw, 2rem);
+
+  /* default system color */
+  color-scheme: dark;
+
+  --Primary_100: hsl(227, 75%, 14%);
+  --Primary_200: hsl(226, 25%, 17%);
+  --Primary_300: hsl(225, 23%, 24%);
+  --Primary_400: hsl(226, 11%, 37%);
+
+  --Secondary_100: hsl(217, 61%, 90%);
+  --Secondary_200: hsl(200, 60%, 99%);
+  --Secondary_300: hsl(0, 0%, 93%);
+  --Secondary_400: hsl(0, 0%, 78%);
+  --Opace_Secondary_400: hsla(226, 11%, 37%, 0.7);
+
+  --body-background-color: linear-gradient(180deg, #040918 0%, #091540 100%);
+
+  @container style(--theme:"light") {
+    color-scheme: light;
+
+    --Primary_100: hsl(217, 61%, 90%);
+    --Primary_200: hsl(200, 60%, 99%);
+    --Primary_300: hsl(0, 0%, 93%);
+    --Primary_400: hsl(0, 0%, 78%);
+
+    --Secondary_100: hsl(227, 75%, 14%);
+    --Secondary_200: hsl(226, 25%, 17%);
+    --Secondary_300: hsl(225, 23%, 24%);
+    --Secondary_400: hsl(226, 11%, 37%);
+    --Opace_Secondary_400: hsla(226, 11%, 37%, 0.3);
+
+    --body-background-color: linear-gradient(180deg, #ebf2fc 0%, #eef8f9 100%);
+  }
+}
+
+.header {
+  padding: var(--space-1);
+  border-radius: var(--space-1);
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  border: 0.1rem solid var(--Primary_300);
+  box-shadow: 0 0 0.5rem var(--Opace_Secondary_400);
+}
+.header,
+.extension_card {
+  background-color: var(--Primary_200);
+}
+.extension-logo-link {
+  text-decoration: none;
+  color: var(--Secondary_200);
+  gap: var(--space-1);
+}
+.extension-logo-txt {
+  font-size: var(--space-025);
+  font-weight: var(--fw-700);
+}
+.filter-btn,
+.remove-btn,
+.theme-btn {
+  appearance: none;
+  border: 0;
+  background-color: var(--Primary_300);
+  outline: none;
+  transition: all 250ms ease;
+
+  &:hover {
+    background-color: var(--Primary_400);
+  }
+
+  &:focus-visible {
+    outline: 0.2rem solid var(--light-Red);
+    outline-offset: 0.2rem;
+    background-color: var(--Primary_400);
+  }
+}
+.filter-btn,
+.extension_card,
+.remove-btn {
+  border: 0.1rem solid var(--Primary_400);
+  box-shadow: 2px 1px 0.5rem var(--Opace_Secondary_400);
+}
+.filter-btn.active {
+  background-color: var(--medium-Red);
+  &:hover,
+  &:focus-visible {
+    background-color: var(--Red);
+  }
+}
+.theme-btn {
+  padding: var(--space-1);
+  border-radius: var(--space-1);
+}
+
+.extension-container {
+  padding-block: var(--space-3);
+  container-type: inline-size;
+}
+.extension-list-header {
+  width: 100%;
+  flex-direction: column;
+  gap: 2rem;
+}
+@container (width > 550px) {
+  .extension-list-header {
+    flex-direction: row;
+  }
+}
+ul {
+  list-style-type: none;
+  padding-inline-start: 0;
+}
+.filter-nav > ul {
+  gap: var(--space-1);
+}
+.filter-btn,
+.remove-btn {
+  padding-inline: var(--space-2);
+  padding-block: var(--space-1);
+  border-radius: 999px;
+  background-color: var(--Primary_200);
+}
+.remove-btn {
+  padding-block: var(--space-05);
+  padding-inline: var(--space-015);
+}
+.extension-list {
+  display: grid;
+  gap: clamp(1rem, 2.66vw, 2rem);
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-auto-rows: 1fr;
+  padding-block-start: var(--space-3);
+}
+.extension_card {
+  padding: var(--space-2);
+  border-radius: var(--space-015);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-2);
+  box-shadow: 0 0 1rem var(--Opace_Secondary_400);
+  transition: all 250ms ease;
+
+  /* To maintain CLS (Cumulative Layout Shift) score  */
+  min-height: 20rem;
+}
+.card-header {
+  display: flex;
+  align-items: start;
+  gap: var(--space-015);
+  max-width: 50ch;
+}
+.card-name {
+  font-size: clamp(2rem, 5.33vw, 2.2rem);
+  font-weight: var(--fw-700);
+  padding-block-end: var(--space-05);
+}
+.card-descr {
+  color: var(--Secondary_400);
+}
+.card-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.toggle-btn {
+  cursor: pointer;
+}
+.toggle-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  display: block;
+  width: 40px;
+  height: 20px;
+  background-color: var(--Primary_400);
+  border-radius: 999px;
+  position: relative;
+  border: 0.3rem solid var(--Primary_400);
+  transition: all 300ms ease;
+}
+
+.toggle-slider::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: var(--toggle_slider);
+  z-index: 2;
+  transition: all 300ms ease;
+}
+.toggle-input:checked + .toggle-slider {
+  background-color: var(--medium-Red);
+  border-color: var(--medium-Red);
+  transition: all 300ms ease;
+  &::after {
+    transform: translateX(2rem);
+  }
+}
+.header,
+.main {
+  max-width: 120rem;
+  margin-inline: auto;
+}
+.overlay {
+  text-align: center;
+  align-content: center;
+  min-height: 20rem;
+  font-size: 3rem;
+  color: var(--Opace_Secondary_400);
+}
+/* ------------------------- Utilities ----------------------------- */
+
+.d-flex {
+  display: flex;
+}
+.f_al-c {
+  align-items: center;
+}
+.f_js-sb {
+  justify-content: space-between;
+}
+.sr-only {
+  width: 1px;
+  height: 1px;
+  white-space: nowrap;
+  border: 0;
+  position: absolute;
+  overflow: hidden;
+  clip-path: inset(50%);
+  margin: -1px;
+}
+.hidden {
+  display: none;
+}
+/* ----------------------- media quries ---------------- */
+
+@media screen and (width > 800px) {
+  .header {
+    padding: clamp(1rem, 2.66vw, 1.3rem);
+  }
+  .extension-container {
+    padding-block: clamp(3rem, 8vw, 5rem);
+  }
+}
