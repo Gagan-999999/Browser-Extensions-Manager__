@@ -218,7 +218,7 @@ function update(btnState) {
 
       cardCont[i].classList.toggle("hidden", shouldHide);
     }
-    if (extensionList.children.length !== 0) overlay(btnState);
+    if (extensionList.children.length !== 1) overlay(btnState);
   }
 
   if (!document.startViewTransition) {
@@ -255,9 +255,10 @@ removeBtn.forEach((remove, i) => {
   remove.addEventListener("click", function () {
     cardCont[i].remove();
 
-    if (extensionList.children.length === 0) {
+    if (extensionList.children.length === 1) {
       overLay.classList.remove("hidden");
       overLay.textContent = "All themes have been removed.";
     }
   });
 });
+
